@@ -1,0 +1,30 @@
+version: '3.0'
+
+services:
+  clientservice:
+    container_name: "client"
+    build:
+      context: .
+      dockerfile: ./golang/Dockerfile
+    networks:
+      - default
+    restart: always
+    ports:
+      - "8081:8081"
+    depends_on:
+      - serverservice
+
+  serverservice:
+    container_name: "server"
+    build:
+      context: .
+      dockerfile: ./python/Dockerfile
+    networks:
+      - default
+    restart: always
+    ports:
+      - "9000:9000"
+
+networks:
+  default:
+   driver: bridge
