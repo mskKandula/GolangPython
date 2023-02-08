@@ -1,6 +1,11 @@
+import sys
+
+# setting path
+sys.path.append('./pb')
+
 from concurrent.futures import ThreadPoolExecutor
-from wine_varieties_pb2 import WineReviewResponse
-from wine_varieties_pb2_grpc import WineClassifierServiceServicer, add_WineClassifierServiceServicer_to_server
+from pb.wine_varieties_pb2 import WineReviewResponse
+from pb.wine_varieties_pb2_grpc import WineClassifierServiceServicer, add_WineClassifierServiceServicer_to_server
 import logging
 import grpc
 
